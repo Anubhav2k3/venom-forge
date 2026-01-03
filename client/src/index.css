@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* GitHub Dark Theme Palette */
+  --background: 222 15% 7%;      /* #0d1117 */
+  --foreground: 213 13% 86%;     /* #c9d1d9 */
+  
+  --card: 218 14% 11%;           /* #161b22 */
+  --card-foreground: 213 13% 86%;
+  
+  --popover: 218 14% 11%;
+  --popover-foreground: 213 13% 86%;
+  
+  --primary: 137 61% 45%;        /* #2dba4e - GitHub Green */
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 215 14% 18%;      /* #21262d */
+  --secondary-foreground: 213 13% 86%;
+  
+  --muted: 215 14% 18%;
+  --muted-foreground: 215 11% 55%; /* #8b949e */
+  
+  --accent: 215 14% 18%;
+  --accent-foreground: 213 13% 86%;
+  
+  --destructive: 353 66% 56%;    /* #da3633 */
+  --destructive-foreground: 0 0% 100%;
+  
+  --border: 214 12% 21%;         /* #30363d */
+  --input: 214 12% 21%;
+  --ring: 215 11% 55%;
+  
+  --radius: 0.375rem;
+  
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Inter', sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/30 selection:text-primary-foreground;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+
+  /* Custom Scrollbar for that terminal feel */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full border-2 border-background;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+/* Code block specific styles */
+pre {
+  @apply font-mono text-sm leading-relaxed;
+}
+
+/* Utility to force monospace everywhere relevant */
+.font-mono {
+  font-family: var(--font-mono);
+}
